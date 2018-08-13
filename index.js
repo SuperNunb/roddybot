@@ -14,7 +14,7 @@ const status = ['idle', 'online', 'dnd'];
 const gamesChoose = Math.floor(Math.random() * games.length);
 const statusChoose = Math.floor(Math.random() * status.length);
 bot.once('ready', () => {
-    bot.user.setGame(games[gamesChoose]);
+    bot.user.setActivity(games[gamesChoose]);
     bot.user.setStatus(status[statusChoose]);
     console.log("BRACE YOURSELVES, RODDY IS COMING...");
 });
@@ -427,7 +427,7 @@ bot.on('message', (message) => {
 });
 
 bot.on('message', (message) => {
-    if (!message.channel.type == "dm") {
+    if (!(message.channel.type == "dm")) {
         let color = [
         "You get a red shirt. Sorry, you won't survive! :grimacing: :dizzy_face: ",
         "You get a red shirt. Sorry, you won't survive! :grimacing: :dizzy_face: ",
