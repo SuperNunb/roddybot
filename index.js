@@ -427,7 +427,8 @@ bot.on('message', (message) => {
 });
 
 bot.on('message', (message) => {
-    if (!(message.channel.type == "dm")) {
+    if (message.channel.type == "dm") return;
+    else {
         let color = [
         "You get a red shirt. Sorry, you won't survive! :grimacing: :dizzy_face: ",
         "You get a red shirt. Sorry, you won't survive! :grimacing: :dizzy_face: ",
@@ -457,7 +458,8 @@ bot.on('message', (message) => {
 
 const number = Math.round(Math.random() * 1000);
 bot.on('message', message => {
-    if (!message.channel.type == "dm") {
+    if (message.channel.type == "dm") return;
+    else {
         let myNumber = parseFloat(message.content.slice(7, message.content.length));
         if (message.content.startsWith(prefix + "guess")) {
             console.log("......................................");
@@ -497,7 +499,8 @@ bot.on('message', message => {
 });
 
 bot.on('message', (message) => {
-    if (!message.channel.type == "dm") {
+    if (message.channel.type == "dm") return;
+    else {
         let winRps = () => {
             addRoddyCoin(message.author.id, 25, message.guild.id);
             message.channel.send("Have 5 RoddyCoins, " + message.author + "!");
@@ -643,7 +646,8 @@ bot.on("messageDelete", message => {
 });
 
 bot.on('message', message => {
-    if (!message.channel.type == "dm") {
+    if (message.channel.type == "dm") return;
+    else {
         hThere = false;
         if (message.content.startsWith("hello there") || message.content.startsWith("Hello there") || message.content.startsWith("Hello There")) {
             message.channel.send('General ' + message.author + '!');
@@ -870,7 +874,8 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-    if (!(message.channel.type == "dm")) {
+    if (message.channel.type == "dm") return;
+    else {
         let baleUnc = (stringLen) => {
             sql.get(`SELECT * FROM "${message.guild.id}" WHERE userId = "${message.author.id}"`).then(row => {
                 message.channel.send(`${message.author}, you currently have a whopping ${row.balance} RoddyCoins!`);
@@ -965,7 +970,8 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-    if (!message.channel.type == "dm") {
+    if (message.channel.type == "dm") return;
+    else {
         const dog = ["dog/dog1.jpg", "dog/dog2.jpg", "dog/dog3.jpg", "dog/dog4.jpg", "dog/dog5.jpg", "dog/dog6.jpg", "dog/dog7.jpg", "dog/dog8.jpg", "dog/dog9.jpg", "dog/dog10.jpg"];
         const cat = ["cat/cat1.jpg", "cat/cat2.jpg", "cat/cat3.jpg", "cat/cat4.jpg", "cat/cat5.jpg", "cat/cat6.jpg", "cat/cat7.jpg", "cat/cat8.jpg", "cat/cat9.jpg", "cat/cat10.jpg"];
         const mount = ["mount/mount1.jpg", "mount/mount2.jpg", "mount/mount3.jpg", "mount/mount4.jpg", "mount/mount5.jpg", "mount/mount6.jpg", "mount/mount7.jpg", "mount/mount8.jpg", "mount/mount9.jpg", "mount/mount10.jpg"];
