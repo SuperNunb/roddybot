@@ -8,7 +8,7 @@ bot.login(process.env.token);
 let prefix = ">";
 bot.setMaxListeners(100);
 
-const grievous = new Discord.WebhookClient('440207791341436930', 'process.env.grievous');
+/*const grievous = new Discord.WebhookClient('440207791341436930', 'process.env.grievous');
 const nien = new Discord.WebhookClient('440211323524218883', 'process.env.nien');
 const kenobi = new Discord.WebhookClient('440214107124137988', 'process.env.kenobi');
 const ackbar = new Discord.WebhookClient('440214650945142784', 'process.env.ackbar');
@@ -17,7 +17,7 @@ const cody = new Discord.WebhookClient('440219056663035923', 'process.env.cody')
 const gameMaster = new Discord.WebhookClient('440319759297413121', 'process.env.gameMaster');
 const stan = new Discord.WebhookClient('440498267399389186', 'process.env.stan');
 const palpa = new Discord.WebhookClient('449953385056305152', 'process.env.palpa');
-const navi = new Discord.WebhookClient('459116838505152522', 'process.env.navi');
+const navi = new Discord.WebhookClient('459116838505152522', 'process.env.navi');*/
 
 const houseOfRoddy = "382890077627613185";
 const games = ["with my programming", "with my invisible dog", "with fire", "Microsoft Chrome", "games on the beach", "on my free Nitro"];
@@ -25,7 +25,7 @@ const status = ['idle', 'online', 'dnd'];
 const gamesChoose = Math.floor(Math.random() * games.length);
 const statusChoose = Math.floor(Math.random() * status.length);
 bot.once('ready', () => {
-    bot.user.setActivity(games[gamesChoose]);
+    bot.user.setGame(games[gamesChoose]);
     bot.user.setStatus(status[statusChoose]);
     console.log("BRACE YOURSELVES, RODDY IS COMING...");
 });
@@ -53,9 +53,7 @@ bot.on("guildCreate", guild => {
 
 bot.on('message', message => {
     if (message.channel.type == "dm") return;
-    else if (message.content.startsWith('hue') && message.channel.id == houseOfRoddy) {
-        nien.send('https://gph.is/2ptOMX0');
-    } else if (message.content.startsWith("hue")) {
+    else if (message.content.startsWith("hue")) {
         message.channel.send('https://gph.is/2ptOMX0');
     }
 });
@@ -166,18 +164,14 @@ bot.on('message', (message) => {
 
 bot.on('message', (message) => {
     if (message.channel.type == "dm") return;
-    else if ((message.content.includes("I am Groot") || message.content.includes("I am groot") || message.content.includes("i am groot") || message.content.includes("i am Groot")) && message.channel.id == houseOfRoddy) {
-        groot.send("**I AM GROOT.**");
-    } else if ((message.content.includes("I am Groot") || message.content.includes("I am groot") || message.content.includes("i am groot") || message.content.includes("i am Groot"))) {
+    else if ((message.content.includes("I am Groot") || message.content.includes("I am groot") || message.content.includes("i am groot") || message.content.includes("i am Groot"))) {
         message.channel.send("**I AM GROOT.**");
     }
 });
 
 bot.on('message', (message) => {
     if (message.channel.type == "dm") return;
-    else if ((message.content.includes("Excelsior!") || message.content.includes("excelsior!")) && message.channel.id == houseOfRoddy) {
-        stan.send("https://gph.is/2uNdruT");
-    } else if (message.content.includes("Excelsior!") || message.content.includes("excelsior!")) {
+    else if (message.content.includes("Excelsior!") || message.content.includes("excelsior!")) {
         message.channel.send("https://gph.is/2uNdruT");
     }
 });
@@ -230,11 +224,7 @@ bot.on('message', (message) => {
 
 bot.on('message', (message) => {
     if (message.channel.type == "dm") return;
-    else if (message.content == (prefix + "roll") && message.channel.id == houseOfRoddy) {
-        let roll = Math.floor(Math.random() * 6) + 1;
-        gameMaster.send(`I rolled the dice for you and rolled a ${roll}`);
-        addRoddyCoin(message.author.id, 25, message.guild.id);
-    } else if (message.content == (prefix + "roll")) {
+    else if (message.content == (prefix + "roll")) {
         let roll = Math.floor(Math.random() * 6) + 1;
         message.channel.send(`I rolled the dice for you and rolled a ${roll}`);
         addRoddyCoin(message.author.id, 25, message.guild.id);
@@ -245,12 +235,7 @@ bot.on('message', (message) => {
     let penny = ["Heads!", "Tails!"];
     const nickel = Math.floor(Math.random() * penny.length);
     if (message.channel.type == "dm") return;
-    else if ((message.content == prefix + "flip" || message.content == "heads or tails?") && message.channel.id == houseOfRoddy) {
-        gameMaster.send("http://gph.is/2j4SPq3");
-        gameMaster.send(penny[nickel]);
-        nickel;
-        addRoddyCoin(message.author.id, 25, message.guild.id);
-    } else if (message.content == prefix + "flip" || message.content == "heads or tails?") {
+    else if (message.content == prefix + "flip" || message.content == "heads or tails?") {
         message.channel.send("http://gph.is/2j4SPq3");
         message.channel.send(penny[nickel]);
         nickel;
@@ -467,17 +452,14 @@ bot.on('message', (message) => {
         let negResp = "You lost 100 RoddyCoins.";
         let posResp = "You won 50 RoddyCoins.";
         let spock = () => {
-            if (message.channel.id == houseOfRoddy) gameMaster.send(kirk);
-            else message.channel.send(kirk);
+            message.channel.send(kirk);
             fabric;
             if (kirk == color[0] || kirk == color[1] || kirk == color[2]) {
                 addRoddyCoin(message.author.id, -100, message.guild.id);
-                if (message.channel.id == houseOfRoddy) gameMaster.send(negResp);
-                else message.channel.send(negResp);
+                message.channel.send(negResp);
             } else {
                 addRoddyCoin(message.author.id, 50, message.guild.id);
-                if (message.channel.id == houseOfRoddy) gameMaster.send(posResp);
-                else message.channel.send(posResp);
+                message.channel.send(posResp);
             }
         }
         if (message.content.startsWith(prefix + "shirt")) spock();
@@ -491,49 +473,32 @@ bot.on('message', message => {
         if (message.content.startsWith(prefix + "guess")) {
             console.log("......................................");
             console.log(number);
-            if (message.content.length <= 7 && message.channel.id == houseOfRoddy) {
-                gameMaster.send("Please guess a number after the command.");
-                myNumber;
-            } else if (message.content.length <= 7) {
+            if (message.content.length <= 7) {
                 message.channel.send("Please guess a number after the command.");
                 myNumber;
-            } else if (message.content.includes("@") && message.channel.id == houseOfRoddy) {
-                gameMaster.send("Users are not numbers!");
-            } else if (message.content.includes("@")) { 
+            } 
+            if (message.content.includes("@")) { 
                 message.channel.send("Users are not numbers!");
-            } else if (myNumber > 1000 && message.channel.id == houseOfRoddy) {
-                gameMaster.send("Roddy's number is not higher than 1000.");
-                myNumber;
-            } else if (myNumber > 1000) {
+            } 
+            if (myNumber > 1000) {
                 message.channel.send("Roddy's number is not higher than 1000.");
                 myNumber;
-            } else if (myNumber < 0 && message.channel.id == houseOfRoddy) {
-                gameMaster.send("Roddy's number is not negative.");
-                myNumber;
-            } else if (myNumber < 0) {
+            } 
+            if (myNumber < 0) {
                 message.channel.send("Roddy's number is not negative.");
                 myNumber;
-            } else if (myNumber > number && message.channel.id == houseOfRoddy) {
-                gameMaster.send('Your guess is too high. Guess again.');
-                myNumber;
-                addRoddyCoin(message.author.id, 15, message.guild.id);
-            } else if (myNumber > number) {
+            } 
+            if (myNumber > number) {
                 message.channel.send('Your guess is too high. Guess again.');
                 myNumber;
                 addRoddyCoin(message.author.id, 15, message.guild.id);
-            } else if (myNumber < number && message.channel.id == houseOfRoddy) {
-                gameMaster.send('Your guess is too low. Guess again.');
-                myNumber;
-                addRoddyCoin(message.author.id, 15, message.guild.id);
-            } else if (myNumber < number) {
+            }
+            if (myNumber < number) {
                 message.channel.send('Your guess is too low. Guess again.');
                 myNumber;
                 addRoddyCoin(message.author.id, 15, message.guild.id);
-            } else if (myNumber == number && message.channel.id == houseOfRoddy) {
-                gameMaster.send('Congratulations! You guessed my number!');
-                addRoddyCoin(message.author.id, 250, message.guild.id);
-                myNumber;
-            } else if (myNumber == number) {
+            }
+            if (myNumber == number) {
                 message.channel.send('Congratulations! You guessed my number! Have a RoddyCoin!');
                 addRoddyCoin(message.author.id, 250, message.guild.id);
                 myNumber;
@@ -546,19 +511,13 @@ bot.on('message', (message) => {
     if (!message.channel.type == "dm") {
         let winRps = () => {
             addRoddyCoin(message.author.id, 25, message.guild.id);
-            if (message.channel.id == houseOfRoddy) gameMaster.send("Have 5 RoddyCoins, " + message.author + "!");
-            else message.channel.send("Have 5 RoddyCoins, " + message.author + "!");
+            message.channel.send("Have 5 RoddyCoins, " + message.author + "!");
         }
         if (message.content.startsWith(prefix + "rps")) {
             const rock = ["rock", "paper", "scissors", "Roddy"];
             let paper = rock[Math.floor(Math.random() * rock.length - 1)];
             const scissors = message.content.slice(5, message.content.length);
             let winner = NaN;
-            function decisionGM() {
-                gameMaster.send("You chose " + scissors + ". I chose " + paper + ". " + winner);
-                winRps();
-                paper;
-            };
             function decisionRG() {
                 message.channel.send("You chose " + scissors + ". I chose " + paper + ". " + winner);
                 winRps();
@@ -567,71 +526,52 @@ bot.on('message', (message) => {
             if (scissors == rock[0]) { //your guess is rock
                 if (paper == rock[0]) { //Roddy's guess is rock
                     winner = "No one wins!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                     addRoddyCoin(message.author.id, 15, message.guild.id);
                 } else if (paper == rock[1]) { //Roddy's guess is paper
                     winner = "I win!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                     addRoddyCoin(message.author.id, 15, message.guild.id);
                 } else if (paper == rock[2]) { //Roddy's guess is scissors
                     winner = "You win!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                 }
             } else if (scissors == rock[3]) {
-                if (message.channel.id == houseOfRoddy) {
-                    gameMaster.send("Roddy is not a weapon!");
-                } else {
-                    message.channel.send("Roddy is not a weapon!");
-                }
+                message.channel.send("Roddy is not a weapon!");
             } else if (scissors == rock[1]) { //your guess is paper
                 if (paper == rock[0]) { //Roddy's guess is rock
                     winner = "You win!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                 } else if (paper == rock[1]) { //Roddy's guess is paper
                     winner = "No one wins!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                     addRoddyCoin(message.author.id, 15, message.guild.id);
                 } else if (paper == rock[2]) { //Roddy's guess is scissors
                     winner = "I win!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                     addRoddyCoin(message.author.id, 15, message.guild.id);
                 }
             } else if (scissors == rock[2]) { //your guess is scissors
                 if (paper == rock[0]) { //Roddy's guess is rock
                     winner = "I win!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                     addRoddyCoin(message.author.id, 15, message.guild.id);
                 } else if (paper == rock[1]) { //Roddy's guess is paper
                     winner = "You win!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                 } else if (paper == rock[2]) { //Roddy's guess is scissors
                     winner = "No one wins!";
-                    if (message.channel.id == houseOfRoddy) decisionGM();
-                    else decisionRG();
+                    decisionRG();
                     addRoddyCoin(message.author.id, 15, message.guild.id);
                 }
-            } else if (scissors.includes("@") && message.channel.id == houseOfRoddy) {
-                gameMaster.send("Users cannot be used to fight!");
-            } else if (scissors.includes("@")) {
+            } 
+            if (scissors.includes("@")) {
                 message.channel.send("Users cannot be used to fight!");
-            } else if (message.content.length <= 4 && message.channel.id == houseOfRoddy) {
-                gameMaster.send("Please guess rock, paper, or scissors.");
-            } else if (message.content.length <= 4) {
+            } 
+            if (message.content.length <= 4) {
                 message.channel.send("Please guess rock, paper, or scissors.");
             } else {
-                if (message.channel.id == houseOfRoddy) {
-                    gameMaster.send("Please guess rock, paper, or scissors, after the command '>rps'.");
-                } else {
-                    message.channel.send("Please guess rock, paper, or scissors, after the command '>rps'.");
-                }
+                message.channel.send("Please guess rock, paper, or scissors, after the command '>rps'.");
             }
         }
     }
@@ -643,19 +583,10 @@ bot.on('message', message => {
         const prizeList = ["a shiny new brick!", "a vacation to Mordor!", "a glass bottle to the head!", "a week of standing on your head!", "a chance to get in a crash!", "a jar of dirt!"];
         let prized = Math.floor(Math.random() * prizeList.length);
         let prize = prizeList[prized];
-        if (message.channel.id == houseOfRoddy) gameMaster.send('http://gph.is/2yLommu');
-        else {
-            message.channel.send('http://gph.is/2yLommu');
-        }
+        message.channel.send('http://gph.is/2yLommu');
         const spun = () => {
-            if (message.channel.id == houseOfRoddy) {
-                gameMaster.send('You get ' + prize);
-                addRoddyCoin(message.author.id, 50, message.guild.id);
-            }
-            else {
-                message.channel.send(message.channel.send('You get ' + prize));
-                addRoddyCoin(message.author.id, 50, message.guild.id);
-            }
+            message.channel.send(message.channel.send('You get ' + prize));
+            addRoddyCoin(message.author.id, 50, message.guild.id);
             prized;
         }
         setTimeout(spun, 4000);
@@ -726,11 +657,6 @@ bot.on('message', message => {
     if (!message.channel.type == "dm") {
         hThere = false;
         if (message.content.startsWith("hello there") || message.content.startsWith("Hello there") || message.content.startsWith("Hello There")) {
-            hThere = true;
-        }
-        if (hThere == true && message.channel.id == houseOfRoddy) {
-            grievous.send('General ' + message.author + '!');
-        } else if (message.content.startsWith("hello there") || message.content.startsWith("Hello there") || message.content.startsWith("Hello There")) {
             message.channel.send('General ' + message.author + '!');
         }
     }
@@ -753,18 +679,14 @@ bot.on("message", message => {
 
 bot.on("message", message => {
     if (message.channel.type == "dm") return;
-    else if ((message.content.includes('uh-oh') || message.content.includes('uh oh') || message.content.includes("trap")) && message.channel.id == houseOfRoddy) {
-        ackbar.send('https://media.giphy.com/media/lk0TFUdop2JTW/giphy.gif')
-    } else if (message.content.includes('uh-oh') || message.content.includes('uh oh') || message.content.includes("trap")) {}
+    else if (message.content.includes('uh-oh') || message.content.includes('uh oh') || message.content.includes("trap")) {
+        message.channel.send('https://media.giphy.com/media/lk0TFUdop2JTW/giphy.gif');
+    }
 });
 
 bot.on("message", message => {
     if (message.channel.type == "dm") return;
-    else if ((message.content.startsWith("execute order 66") || message.content.startsWith("Execute Order 66")) && message.id == houseOfRoddy) {
-        cody.send('It will be done, ' + message.author + '.');
-        cody.send("*BANS EVERYONE*");
-        addRoddyCoin(message.author.id, 15, message.guild.id);
-    } else if (message.content.startsWith("execute order 66") || message.content.startsWith("Execute Order 66")) {
+    else if (message.content.startsWith("execute order 66") || message.content.startsWith("Execute Order 66")) {
         message.channel.send('It will be done, ' + message.author + '.');
         message.channel.send("*BANS EVERYONE*");
         addRoddyCoin(message.author.id, 15, message.guild.id);
@@ -773,9 +695,7 @@ bot.on("message", message => {
 
 bot.on("message", message => {
     if (message.channel.type == "dm") return;
-    else if (message.content.includes("I sense") && message.channel.id == houseOfRoddy) {
-        kenobi.send("I don't sense anything.");
-    } else if (message.content.includes("I sense")) {
+    else if (message.content.includes("I sense")) {
         message.channel.send("I don't sense anything.");
     }
 });
@@ -785,63 +705,33 @@ bot.on("message", message => {
     else if (message.content.startsWith(prefix + "chase")) {
         const finale = () => {
             const possibleOutcomes = ["I got you, you little-  Hey! Come back here!", "Where'd they go??"];
-            if (message.channel.id == houseOfRoddy) gameMaster.send(possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.length)]);
-            else {
-                message.channel.send(possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.length)]);
-            }
+            message.channel.send(possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.length)]);
         }
         let victim = message.author;
         if (message.content.length > 6 && message.content.includes("@")) {
             victim = message.content.slice(7, message.content.length);
         }
-        if (message.channel.id == houseOfRoddy) gameMaster.send("Watch out, " + victim + "! I'm gonna get you!");
-        else {
-            message.channel.send("Watch out, " + victim + "! I'm gonna get you!");
-        }
+        message.channel.send("Watch out, " + victim + "! I'm gonna get you!");
         setTimeout(finale, 3000);
     } else if (message.content.startsWith(prefix + "chase")) {
         const finale = () => {
             const possibleOutcomes = ["I got you, you little-  Hey! Come back here!", "Where'd they go??"];
-            if (message.channel.id == houseOfRoddy) {
-                gameMaster.send(possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.length)]);
-                addRoddyCoin(message.author.id, 50, message.guild.id);
-            }
-            else {
-                message.channel.send(possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.length)]);
-                addRoddyCoin(message.author.id, 50, message.guild.id);
-            }
+            message.channel.send(possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.length)]);
+            addRoddyCoin(message.author.id, 50, message.guild.id);
         }
         let victim = message.author;
         if (message.content.length > 6 && message.content.includes("@")) {
             victim = message.content.slice(7, message.content.length);
         }
-        if (message.channel.id == houseOfRoddy) {
-            gameMaster.send("Watch out, " + victim + "! I'm gonna get you!");
-            winChase();
-        }
-        else {
-            message.channel.send("Watch out, " + victim + "! I'm gonna get you!");
-            winChase();
-        }
+        message.channel.send("Watch out, " + victim + "! I'm gonna get you!");
+        winChase();
         setTimeout(finale, 3000);
     }
 });
 
 bot.on("message", message => {
     if (message.channel.type == "dm") return;
-    else if (message.content.startsWith(prefix + "scare") && message.member.hasPermission("SEND_TTS_MESSAGES") && message.channel.id == houseOfRoddy) {
-        const smokeScreen = ["THINK FAST!", "BOO!", "SURPRISE!"];
-        let smoke = Math.floor(Math.random() * smokeScreen.length);
-        const mist = smokeScreen[smoke];
-        if (message.content.length < 7) {
-            gameMaster.send(mist, {tts:true});
-        } else if (message.content.length > 7 && message.content.includes("@")) {
-            let scream = message.content.slice(7, message.content.length);
-            gameMaster.send(scream + ", " + mist, {tts: true});
-        }
-    } else if (message.content.startsWith(prefix + "scare") && message.channel.id == houseOfRoddy) {
-        gameMaster.send("Sorry, you don't have permission for that.");
-    } else if (message.content.startsWith(prefix + "scare") && message.member.hasPermission("SEND_TTS_MESSAGES") && message.channel.id != houseOfRoddy) {
+    else if (message.content.startsWith(prefix + "scare") && message.member.hasPermission("SEND_TTS_MESSAGES")) {
         const smokeScreen = ["THINK FAST!", "BOO!", "SURPRISE!"];
         let smoke = Math.floor(Math.random() * smokeScreen.length);
         const mist = smokeScreen[smoke];
@@ -850,7 +740,7 @@ bot.on("message", message => {
         } else if (message.content.length > 7 && message.content.includes("@")) {
             let scream = message.content.slice(7, message.content.length);
             message.channel.send(scream + ", " + mist, {tts: true});
-        } else if (message.content.startsWith(prefix + "scare") && message.channel.id != houseOfRoddy) {
+        } else if (message.content.startsWith(prefix + "scare")) {
             message.channel.send("Sorry, you don't have permission for that.");
         }
     }
@@ -924,11 +814,7 @@ bot.on("message", message => {
 bot.on("message", message => {
     if (message.channel.type == "dm") return;
     else if (message.content.startsWith("do it") || message.content.startsWith("Do it") || message.content.startsWith("Do It") || message.content.startsWith("DO IT")) {
-        if (message.channel.id == houseOfRoddy) {
-            palpa.send("https://media.giphy.com/media/rjLINlGpJYvvO/giphy.gif");
-        } else {
-            message.channel.send('https://media.giphy.com/media/rjLINlGpJYvvO/giphy.gif');
-        }
+        message.channel.send('https://media.giphy.com/media/rjLINlGpJYvvO/giphy.gif');
     }
 });
 
@@ -986,47 +872,12 @@ bot.on("message", message => {
     let nav = Math.floor(Math.random() * map.length);
     let targeting = map[nav];
     if (message.content.startsWith(prefix + "planet")) {
-        if (message.channel.id == "438354040498159617") {
-            navi.send(targeting);
-            navi.send(coords);
-            addRoddyCoin(message.author.id, 15, message.guild.id);
-        }
-        else {
-            message.channel.send(targeting);
-            message.channel.send(coords);
-            addRoddyCoin(message.author.id, 15, message.guild.id);
-        }
+        message.channel.send(targeting);
+        message.channel.send(coords);
+        addRoddyCoin(message.author.id, 15, message.guild.id);
     }
     galaxy;
     nav;
-});
-
-bot.on("message", message => {
-    if (!message.channel.type == "dm") {
-        let flipFunc = (stringLen) => {
-            if (message.author.id == "233686115712892929") {
-                if (prefix = ">") {
-                    prefix = "<";
-                    pointRight = false;
-                }
-                message.channel.send("The prefix has been flipped!");
-            } else {
-                message.channel.send("Sorry, you don't have permission to flip the prefix!");
-            }
-        }
-        let flipError = () => {
-            message.channel.send("Sorry, but the prefix has already been flipped, and can only be flipped back by restarting the bot.");
-        }
-        if (message.content.startsWith(">prefixFlip")) flipFunc(11);
-        if (message.content.startsWith(">flipPrefix")) flipFunc(11);
-        if (message.content.startsWith(">preFlip")) flipFunc(8);
-        if (message.content.startsWith(">flipPre")) flipFunc(8);
-        if (message.content.startsWith("<prefixFlip")) flipError();
-        if (message.content.startsWith("<flipPrefix")) flipError();
-        if (message.content.startsWith("<preFlip")) flipError();
-        if (message.content.startsWith("<flipPre")) flipError();
-        if (message.content.startsWith("currentPrefix")) message.channel.send(prefix + " is the current prefix, " + message.author + ".");
-    }
 });
 
 bot.on("message", message => {
