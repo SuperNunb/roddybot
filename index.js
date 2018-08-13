@@ -557,10 +557,10 @@ bot.on('message', (message) => {
                     addRoddyCoin(message.author.id, 15, message.guild.id);
                 }
             } 
-            if (scissors.includes("@")) {
+            else if (scissors.includes("@")) {
                 message.channel.send("Users cannot be used to fight!");
             } 
-            if (message.content.length <= 4) {
+            else if (message.content.length <= 4) {
                 message.channel.send("Please guess rock, paper, or scissors.");
             } else {
                 message.channel.send("Please guess rock, paper, or scissors, after the command '>rps'.");
