@@ -4,7 +4,7 @@ const sql = require("sqlite");
 sql.open("./roddyLog.sqlite");
 const recentWithdraw = new Set();
 const recentImg = new Set();
-bot.login('Mjk3MzY3ODgxNzM2NTE5Njky.DRCD-A.mJfO_hTBV5ZMd0hYMCzJaIWr99s');
+bot.login(process.env.token);
 let prefix = ">";
 bot.setMaxListeners(100);
 
