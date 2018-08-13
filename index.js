@@ -8,16 +8,16 @@ bot.login(process.env.token);
 let prefix = ">";
 bot.setMaxListeners(100);
 
-const grievous = new Discord.WebhookClient('440207791341436930', 'uF-oEqUXua1ra1P8hk1jfFmIu7ZwRepDllxuu5nULG3ecpoFlfJA-W8GAJgrgLgwHmgE');
-const nien = new Discord.WebhookClient('440211323524218883', 'AjD0f-yoFnyl6EDdvmPsLDYBaIF51t0iE1URCUVfSWVVcAnHRtg4S8twpsspdP_3DL7p');
-const kenobi = new Discord.WebhookClient('440214107124137988', 'FinQi-Ck0lWF7V9LtlIgYI8RtfyEy90ribWM2zCB-pKkQ7Zo0C-awUsvLvO0usQCOEq2');
-const ackbar = new Discord.WebhookClient('440214650945142784', 'HpJ9akWXG6_nKNFRgOn9EDRGgraW49UYa34M5r2NOdBrXCtRt4qytb5JAAdmm-6WaTwX');
-const groot = new Discord.WebhookClient('440215513092718632', 'C5ORgMAs35YRWtptx7pS3zdX6pmPZxBvy8r0JwMYiJwjS7PXNvMz_hvgbuwr2z3hAyjs');
-const cody = new Discord.WebhookClient('440219056663035923', 'zq8_4pXYN9mw9EtUBnpXRg4JoIv7sZmsq67AQzgO-zyvT7ggmtqCujyrR5CBSin-NvMn');
-const gameMaster = new Discord.WebhookClient('440319759297413121', 'kwLH5nBnzNHUaT-ejzfxi55YcrwM-F6Tf_2iojwyKiGzMngLAN0iTLBKNpqGWQbF3wF0');
-const stan = new Discord.WebhookClient('440498267399389186', '6eCGXRAicwU70DhxSQRkg08W7_pJfsLr5EdanvSWB_EM1pHerL3ufxC2gGgF4mi0o2X_');
-const palpa = new Discord.WebhookClient('449953385056305152', 'K-NJQ6jLJcea74dArGKMejr2MtwQc5rHkDBXFIMUfgMacUb-hUv3W6x35zeSTizHMa3r');
-const navi = new Discord.WebhookClient('459116838505152522', '7g71XtndjWfPxLCX71kxtZ6GrS4JzGrqJvV_PZaju5KgCeEAOSYRUi4R9-AKVb919VIo');
+const grievous = new Discord.WebhookClient('440207791341436930', 'process.env.grievous');
+const nien = new Discord.WebhookClient('440211323524218883', 'process.env.nien');
+const kenobi = new Discord.WebhookClient('440214107124137988', 'process.env.kenobi');
+const ackbar = new Discord.WebhookClient('440214650945142784', 'process.env.ackbar');
+const groot = new Discord.WebhookClient('440215513092718632', 'process.env.groot');
+const cody = new Discord.WebhookClient('440219056663035923', 'process.env.cody');
+const gameMaster = new Discord.WebhookClient('440319759297413121', 'process.env.gameMaster');
+const stan = new Discord.WebhookClient('440498267399389186', 'process.env.stan');
+const palpa = new Discord.WebhookClient('449953385056305152', 'process.env.palpa');
+const navi = new Discord.WebhookClient('459116838505152522', 'process.env.navi');
 
 const houseOfRoddy = "382890077627613185";
 const games = ["with my programming", "with my invisible dog", "with fire", "Microsoft Chrome", "games on the beach", "on my free Nitro"];
