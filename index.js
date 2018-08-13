@@ -8,17 +8,6 @@ bot.login(process.env.token);
 let prefix = ">";
 bot.setMaxListeners(100);
 
-/*const grievous = new Discord.WebhookClient('440207791341436930', 'process.env.grievous');
-const nien = new Discord.WebhookClient('440211323524218883', 'process.env.nien');
-const kenobi = new Discord.WebhookClient('440214107124137988', 'process.env.kenobi');
-const ackbar = new Discord.WebhookClient('440214650945142784', 'process.env.ackbar');
-const groot = new Discord.WebhookClient('440215513092718632', 'process.env.groot');
-const cody = new Discord.WebhookClient('440219056663035923', 'process.env.cody');
-const gameMaster = new Discord.WebhookClient('440319759297413121', 'process.env.gameMaster');
-const stan = new Discord.WebhookClient('440498267399389186', 'process.env.stan');
-const palpa = new Discord.WebhookClient('449953385056305152', 'process.env.palpa');
-const navi = new Discord.WebhookClient('459116838505152522', 'process.env.navi');*/
-
 const houseOfRoddy = "382890077627613185";
 const games = ["with my programming", "with my invisible dog", "with fire", "Microsoft Chrome", "games on the beach", "on my free Nitro"];
 const status = ['idle', 'online', 'dnd'];
