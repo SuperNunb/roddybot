@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const sql = require("sqlite");
 sql.open("./roddyLog.sqlite");
+const badWords = require("./badWords.json");
+const nWord = badWords.nWord;
+const bWord = badWords.bWord;
+const cWord = badWords.cWord;
 const recentWithdraw = new Set();
 const recentImg = new Set();
 bot.login(process.env.token);
@@ -13,9 +17,11 @@ const games = ["with my programming", "with my invisible dog", "with fire", "Mic
 const status = ['idle', 'online', 'dnd'];
 const gamesChoose = Math.floor(Math.random() * games.length);
 const statusChoose = Math.floor(Math.random() * status.length);
+const chosenGame = games[gamesChoose];
+const chosenStatus = status[statusChoose];
 bot.once('ready', () => {
-    bot.user.setActivity(games[gamesChoose]);
-    bot.user.setStatus(status[statusChoose]);
+    bot.user.setGame(chosenGame);
+    bot.user.setStatus(chosenStatus);
     console.log("BRACE YOURSELVES, RODDY IS COMING...");
 });
 
@@ -1022,5 +1028,13 @@ bot.on("message", message => {
     if (message.channel.type == "dm") return;
     else if (message.content.startsWith(prefix + "invite")) {
         message.channel.send("https://discordapp.com/api/oauth2/authorize?client_id=297367881736519692&permissions=1678244929&scope=bot");
+    }
+});
+
+bot.on("message", message => {
+    if (message.guild.id == "379371294560354304") {
+        if (message.content.includes(nWord)) message.delete();
+        if (message.content.includes(cWord)) message.delete();
+        if (message.content.includes(bWord)) message.delete();
     }
 });
