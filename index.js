@@ -496,7 +496,7 @@ bot.on('message', message => {
                 addRoddyCoin(message.author.id, 15, message.guild.id);
             }
             if (myNumber == number) {
-                message.channel.send('Congratulations! You guessed my number! Have a RoddyCoin!');
+                message.channel.send('Congratulations! You guessed my number! Have 250 RoddyCoins!');
                 addRoddyCoin(message.author.id, 250, message.guild.id);
                 myNumber;
             }
@@ -508,8 +508,8 @@ bot.on('message', (message) => {
     if (message.channel.type == "dm") return;
     else {
         let winRps = () => {
-            addRoddyCoin(message.author.id, 25, message.guild.id);
-            message.channel.send("Have 5 RoddyCoins, " + message.author + "!");
+            addRoddyCoin(message.author.id, 50, message.guild.id);
+            message.channel.send("Have 50 RoddyCoins, " + message.author + "!");
         }
         if (message.content.startsWith(prefix + "rps")) {
             const rock = ["rock", "paper", "scissors", "Roddy"];
