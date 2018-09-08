@@ -17,7 +17,7 @@ const games = ["with my programming", "with my invisible dog", "with fire", "Mic
 const status = ['idle', 'online', 'dnd'];
 const gamesChoose = Math.floor(Math.random() * games.length);
 const statusChoose = Math.floor(Math.random() * status.length);
-const chosenGame = games[gamesChoose] + " | say >help";
+const chosenGame = games[gamesChoose] + " | Say >help";
 const chosenStatus = status[statusChoose];
 bot.once('ready', () => {
     bot.user.setGame(chosenGame);
