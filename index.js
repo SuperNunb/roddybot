@@ -1034,14 +1034,16 @@ bot.on("message", message => {
 bot.on("message", message => {
     if (message.guild.id == "379371294560354304") {
         const badWordFunc = (baWord) => {
-            let baLen = "%@$#^".repeat(baWord.length / 4);
+            let baLen = "$".repeat(baWord.length);
             let messClean = message.content.replace(baWord, baLen);
             message.delete();
-            message.channel.send(`**${message.author} tried to say:**\n  ${messClean}`);
+            message.channel.send(`**${message.author} said:**\n  ${messClean}`);
+            addRoddyCoin(message.author.id, -30, message.guild.id);
         }
         if (message.content.includes(nWord)) badWordFunc(nWord);
         if (message.content.includes(cWord)) badWordFunc(cWord);
         if (message.content.includes(bWord)) badWordFunc(bWord);
         if (message.content.includes("joIu")) badWordFunc("joIu");
+        if (message.content.includes("PoUyEQ")) badWordFunc("PoUyEQ");
     }
 });
