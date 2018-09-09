@@ -1043,7 +1043,5 @@ bot.on("message", message => {
         if (message.content.includes(nWord)) badWordFunc(nWord);
         if (message.content.includes(cWord)) badWordFunc(cWord);
         if (message.content.includes(bWord)) badWordFunc(bWord);
-        if (message.content.includes("joIu")) badWordFunc("joIu");
-        if (message.content.includes("PoUyEQ")) badWordFunc("PoUyEQ");
     }
 });
