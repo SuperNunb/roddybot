@@ -1033,8 +1033,15 @@ bot.on("message", message => {
 
 bot.on("message", message => {
     if (message.guild.id == "379371294560354304") {
-        if (message.content.includes(nWord)) message.delete();
-        if (message.content.includes(cWord)) message.delete();
-        if (message.content.includes(bWord)) message.delete();
+        const badWordFunc = (baWord, strLen) => {
+            let baLen = "\*".repeat(baWord.length);
+            let messClean = message.content.replace(baWord, baLen");
+            message.delete();
+            message.channel.send(`**${message.author} said:**\n  ${messClean}`);
+        }
+        if (message.content.includes(nWord)) badWordFunc(nWord);
+        if (message.content.includes(cWord)) badWordFunc(cWord);
+        if (message.content.includes(bWord)) badWordFunc(bWord);
+        if (message.content.includes("joIu")) badWordFunc("joIu");
     }
 });
