@@ -1034,7 +1034,7 @@ bot.on("message", message => {
 bot.on("message", message => {
     if (message.guild.id == "379371294560354304") {
         const badWordFunc = (baWord) => {
-            let baLen = "%@$#^".repeat(baWord.length / 5);
+            let baLen = "%@$#^".repeat(baWord.length / 4);
             let messClean = message.content.replace(baWord, baLen);
             message.delete();
             message.channel.send(`**${message.author} tried to say:**\n  ${messClean}`);
