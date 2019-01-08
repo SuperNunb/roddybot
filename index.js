@@ -1052,4 +1052,7 @@ bot.on("message", message => {
     }
     if (message.content.startsWith(`${prefix}bored`)) bored();
     if (message.content.includes("bored")) bored();
+    if (message.content.includes("bored")) bored();
+    if (message.content.includes("this is boring")) bored();
+    if (message.content.includes("This is boring")) bored();
 });
