@@ -1045,3 +1045,11 @@ bot.on("message", message => {
         if (message.content.includes(bWord)) badWordFunc(bWord);
     }
 });
+
+bot.on("message", message => {
+    const bored = () => {
+        message.channel.send(`Well, what am I supposed to do? Provide you with some kind of entertainment?`);
+    }
+    if (message.content.startsWith(`${prefix}bored`)) bored();
+    if (message.content.includes("bored")) bored();
+});
