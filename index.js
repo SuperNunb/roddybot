@@ -1051,8 +1051,10 @@ bot.on("message", message => {
         message.channel.send(`Well, what am I supposed to do? Provide you with some kind of entertainment?`);
     }
     if (message.content.startsWith(`${prefix}bored`)) bored();
-    if (message.content.includes("bored")) bored();
-    if (message.content.includes("bored")) bored();
-    if (message.content.includes("this is boring")) bored();
-    if (message.content.includes("This is boring")) bored();
+    else {
+        if (message.content.includes("bored")) bored();
+        if (message.content.includes("Bored")) bored();
+        if (message.content.includes("this is boring")) bored();
+        if (message.content.includes("This is boring")) bored();
+    }
 });
